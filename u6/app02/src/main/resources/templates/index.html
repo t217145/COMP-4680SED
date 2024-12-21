@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <title></title>
+    </head>
+    <body>  
+        <a th:href="@{/internal/index}">Internal</a> &nbsp; &nbsp;
+        <a th:href="@{/internal/admin}">Admin</a>
+        <p th:text="${msg}"></p>
+        <div th:if="${#authorization.expression('isAuthenticated()')}">
+            <p>Welcome, <span th:text="${#authentication.principal.username}"></span>!</p>
+        </div>
+        <div sec:authorize="isAuthenticated()">
+            <p>This content is only visible to authenticated users.</p>
+            <form action="/logout" method="post" name="logoutForm">
+            </form>            
+            <a href="javascript:document.getElementsByName('logoutForm')[0].submit();">Logout</a>
+        </div>
+        <div sec:authorize="hasRole('ROLE_ADMIN')">
+            <p>This content is only visible to users with the 'ROLE_ADMIN' role.</p>
+        </div>        
+    </body>
+</html>

@@ -1,0 +1,47 @@
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://app01.soap.u07.comp4680/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="DemoSoapServiceImpService" targetNamespace="http://app01.soap.u07.comp4680/">
+	<wsdl:types>
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://app01.soap.u07.comp4680/" elementFormDefault="unqualified" targetNamespace="http://app01.soap.u07.comp4680/" version="1.0">
+			<xs:element name="sayHelloName" type="tns:sayHelloName"/>
+			<xs:element name="sayHelloNameResponse" type="tns:sayHelloNameResponse"/>
+			<xs:complexType name="sayHelloName">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="yourName" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="sayHelloNameResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="greeting" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="sayHelloName">
+		<wsdl:part element="tns:sayHelloName" name="parameters"> </wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="sayHelloNameResponse">
+		<wsdl:part element="tns:sayHelloNameResponse" name="parameters"> </wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name="DemoSoapService">
+		<wsdl:operation name="sayHelloName">
+			<wsdl:input message="tns:sayHelloName" name="sayHelloName"> </wsdl:input>
+			<wsdl:output message="tns:sayHelloNameResponse" name="sayHelloNameResponse"> </wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="DemoSoapServiceImpServiceSoapBinding" type="tns:DemoSoapService">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="sayHelloName">
+			<soap:operation soapAction="" style="document"/>
+			<wsdl:input name="sayHelloName">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="sayHelloNameResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="DemoSoapServiceImpService">
+		<wsdl:port binding="tns:DemoSoapServiceImpServiceSoapBinding" name="DemoSoapServiceImpPort">
+			<soap:address location="http://localhost:8080/services/helloSvc"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+</head>
+<body>
+<div layout:fragment="customContent">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-2">
+            <a href="#" th:href="@{/create}" class="btn btn-primary">Create</a>         
+        </div>
+    </div>
+    <table class="table table-striped">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Addr</th>
+            <th>Phone</th>
+            <th>&nbsp;</th>
+        </tr>
+        <tr th:each="obj : ${allObjects}">
+            <td th:text="${obj.id}" />
+            <td th:text="${obj.name}" />
+            <td th:text="${obj.addr}" />
+            <td th:text="${obj.phone}" />
+            <td>
+                <a th:href="@{/update/{id}(id = ${obj.id})}" class="btn btn-primary">Edit</a> &nbsp; | &nbsp;
+                <a th:href="@{/delete/{id}(id = ${obj.id})}" onclick="return confirm('Are you sure?')" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

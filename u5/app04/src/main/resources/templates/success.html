@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Guess the number</title>
+  </head>
+  <body>
+    <h1>Guess the number</h1>
+    <p th:text="${game.message}" />
+    <p th:text="'You have made ' + ${game.trials} + ' guesses.'" />
+
+    <form th:action="@{/play}" method="GET">
+      <input type="hidden" name="newGame" value="1" />
+      <input type="submit" value="Play again" />
+    </form>
+  </body>
+</html>

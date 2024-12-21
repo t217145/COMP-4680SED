@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+    <head>
+        <title></title>
+    </head>
+    <body>
+    <div layout:fragment="customContent">
+        <p th:text="'Id ' + ${ErrObject.id} + ' of ' + ${ErrObject.entityName} + ' not found'" />
+        <p>
+            Please click <a th:href="@{{url}(url = ${ErrObject.rtnUrl})}">here</a> to go back
+        </p>
+    </div>
+    </body>
+</html>

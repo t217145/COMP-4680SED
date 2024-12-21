@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Guess the number</title>
+  </head>
+  <body>
+    <h1>Guess the number</h1>
+<p>
+  I have a number in mind. Guess it! For every guess you make, I’ll tell you
+  whether it is higher than, lower than, or equal to my number.
+</p>
+<form th:action="@{/play}" method="GET">
+  <input type="hidden" name="newGame" value="1" />
+  <input type="submit" value="Play the game" />
+</form>
+  </body>
+</html>
