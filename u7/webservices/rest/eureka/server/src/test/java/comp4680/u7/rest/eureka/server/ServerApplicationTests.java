@@ -1,10 +1,10 @@
-package comp4680sed.u7.ws.openapi;
+package comp4680.u7.rest.eureka.server;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class OpenapiApplicationTests {
+class ServerApplicationTests {
 
 	@Test
 	void contextLoads() {
