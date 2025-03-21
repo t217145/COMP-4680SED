@@ -1,5 +1,5 @@
 variable "resource_group_name" {
-  default = "wi-demo-rg"
+  default = "comp4680sed-demo-rg"
 }
 
 variable "location" {
@@ -15,7 +15,7 @@ variable "acr_sku" {
 }
 
 variable "aks_name" {
-  default = "wi-demo-aks"
+  default = "comp4680sed-demo-aks"
 }
 
 variable "aks_node_count" {
