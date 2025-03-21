@@ -1,6 +1,6 @@
 ### Introduction
 
-This is a demo project to illustrate how to containerize your application as a container image and eventually deploy to Kubernetes. We choose Azure as our platform which is different from our course COMP4680SED. However, the underlying technology and procedure are the same. Therefore it won't affect your learning.
+This is a demo project to illustrate how to containerize your application as a container image and eventually deploy to Kubernetes. We choose Azure as our platform which is different from our course [COMP4680SED](https://www.hkmu.edu.hk/admissions/course-info/comp-4680sed/). However, the underlying technology and procedure are the same. Therefore it won't affect your learning.
 
 We will learn how to use Infrastructure as Code (IaC) to provision all the cloud resource needed (refer to tech stack), and we build the container image by using Dockerfile, push the image to a container registry, and eventually deploy the application by the container image to Kubernetes cluster, which is a container orchestration PaaS service on cloud. And expose the application to Internet.
 
