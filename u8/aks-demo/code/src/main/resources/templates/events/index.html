@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Lists</title>
+</head>
+<body>
+<div layout:fragment="customContent">
+    <button class="btn btn-primary" th:onclick="'javascript:window.location=\'' + @{/events/create} + '\';'">Create</button>
+    <table class="table table-striped">
+        <tr>
+            <td>Code</td>
+            <td>Name</td>
+            <td>Description</td>
+            <td>Date</td>
+            <td>Status</td>
+            <td>Actions</td>
+        </tr>
+        <tr th:each="event : ${events}">
+            <td th:text="${event.code}" />
+            <td th:text="${event.name}" />
+            <td th:text="${event.descr}" />
+            <td th:text="${event.eventDate}" />
+            <td th:text="${event.getStatusString()}" />
+            <td>
+                <button class="btn btn-warning" th:onclick="'javascript:window.location=\'' + @{/events/edit/{id}(id=${event.id})} + '\';'">Edit</button>
+                <button class="btn btn-danger" th:onclick="'javascript:window.location=\'' + @{/events/delete/{id}(id=${event.id})} + '\';'">Delete</button>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
