@@ -2,6 +2,12 @@
 
 This a demo to illustrate the Service Discovery capability provided by Netflix Eureka. 
 
+### How to test run
+1. Open 4 different terminal
+2. In terminal 1, run the Spring Boot Application under server project. Make sure the Eureka Server is started when no further log message generated.
+3. In terminal 2 & 3, run the Spring Boot Application under client project. Make sure the 1st client is started when no further log message generated, and then run the 2nd client.
+4. In terminal 4, run the Spring Boot Application under consumer project.
+
 ### Architecture
 
 The __Eureka Server__ provides registration and discovery services for microservices. 
